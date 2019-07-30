@@ -2,7 +2,7 @@
 
 import numpy as np
 
-class parameter:
+class Parameter:
     def __init__(self, init_params):
         if not isinstance(init_params, dict):
             raise TypeError("params must be dict.")
@@ -14,7 +14,10 @@ class parameter:
     
     # パラメータが全部0のものを作るメソッド
     def zeros(self):
-        raise NotImplementedError("zeros() must be implemented.")
+        zero_params = {}
+        for i in self.params:
+            zero_params[i] = np.zeros(self[i].shape)
+        return parameter(zero_params)
 
     def _arithmetic(self, other, func):
         res = self.zeros()

@@ -12,7 +12,7 @@ class SGD:
             diff[i] = grad[i] * self._learning_rate[i]
         return diff
 
-class momentum:
+class Momentum:
     def __init__(self, learning_rate, alpha):
         self._learning_rate = learning_rate
         self._alpha = alpha
