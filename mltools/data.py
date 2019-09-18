@@ -26,6 +26,9 @@ class Data:
         self.data = (self.data - mu) / (sigma + 1e-8 )
         np.clip(self.data, -clip_size, clip_size, out=self.data)
         return mu, sigma
+    
+    def __len__(self):
+        return len(self.data)
 
 class CategoricalData:
     def __init__(self, data, answer):
