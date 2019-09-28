@@ -3,7 +3,9 @@
 import numpy as np
 
 class SGD:
-    def __init__(self, learning_rate):
+    def __init__(self, learning_rate=None):
+        if learning_rate is None:
+            raise ValueError("learning_rate is required.")
         self._learning_rate = learning_rate
     
     def update(self, grad):
@@ -13,7 +15,9 @@ class SGD:
         return diff
 
 class Momentum:
-    def __init__(self, learning_rate, alpha):
+    def __init__(self, learning_rate=None, alpha=None):
+        if learning_rate is None or alpha is None:
+            raise ValueError("learning_rate and alpha is required.")
         self._learning_rate = learning_rate
         self._alpha = alpha
         self._old_grad = None 
