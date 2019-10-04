@@ -53,8 +53,8 @@ class LogSet:
         summary_data["xaxis"] = self.data["xaxis"]
         summary_data["values"] = {}
         for t in self.data["values"]:
+            summary_data["values"][t] = {}
             for c in self.data["values"][t]:
-                summary_data["values"][t] = {}
                 datas = np.array(self.data["values"][t][c])
                 summary_data["values"][t][c] = npfunc(datas, axis=0).tolist()
         return LogSet(summary_data)
