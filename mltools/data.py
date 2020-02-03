@@ -32,7 +32,7 @@ class Data:
 
 class CategoricalData:
     def __init__(self, data, answer):
-        if not isinstance(data, np.ndarray) or isinstance(answer, np.ndarray):
+        if not isinstance(data, np.ndarray) or not isinstance(answer, np.ndarray):
             raise TypeError("only numpy.ndarray")
         self.data = Data(data)
         self.answer = Data(answer)
