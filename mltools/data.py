@@ -43,3 +43,6 @@ class CategoricalData:
 
     def normalize(self, **kwargs):
         self.data.normalize(**kwargs)
+    
+    def __len__(self):
+        return len(self.data)
