@@ -42,7 +42,8 @@ class CategoricalData:
         return batch_data, self.answer.data[idx]
 
     def normalize(self, **kwargs):
-        self.data.normalize(**kwargs)
+        mu, sigma = self.data.normalize(**kwargs)
+        return mu, sigma
     
     def __len__(self):
         return len(self.data)
