@@ -87,6 +87,7 @@ class LogSet:
             ax.set_title(plot["title"])
             ax.set_xlabel(plot["xlabel"])
             ax.set_ylabel(plot["ylabel"])
+            ax.set_yscale(plot["yscale"])
             for type in settings["data-types"]:
                 style = plot["default_style"].copy()
                 style["label"] = type["name"]
