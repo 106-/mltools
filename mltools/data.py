@@ -32,7 +32,7 @@ class Data:
 
 class CategoricalData:
     def __init__(self, data, answer):
-        if not isinstance(data, np.ndarray) or isinstance(answer, np.ndarray):
+        if not isinstance(data, np.ndarray) or not isinstance(answer, np.ndarray):
             raise TypeError("only numpy.ndarray")
         self.data = Data(data)
         self.answer = Data(answer)
@@ -42,4 +42,8 @@ class CategoricalData:
         return batch_data, self.answer.data[idx]
 
     def normalize(self, **kwargs):
-        self.data.normalize(**kwargs)
+        mu, sigma = self.data.normalize(**kwargs)
+        return mu, sigma
+    
+    def __len__(self):
+        return len(self.data)
