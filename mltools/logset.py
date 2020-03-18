@@ -74,7 +74,7 @@ class LogSet:
         datas = np.array(datas).T
         np.savetxt(filename, datas, header=", ".join(headers))
     
-    def plot(self, settings, filename=None):
+    def plot(self, settings, filename=None, step=1):
         if not self.data["summary"]:
             raise ValueError("data must be summarized.")
         mpl.rcParams.update(settings["rcParams"])
@@ -93,7 +93,7 @@ class LogSet:
                 style["label"] = type["name"]
                 if "style" in type:
                     style.update(type["style"])
-                ax.plot(self.data["xaxis"], self.data["values"][type["typename"]][plot["column"]], **style)
+                ax.plot(self.data["xaxis"][::step], self.data["values"][type["typename"]][plot["column"]][::step], **style)
             ax.legend(**plot["legend_args"])
         
         if filename is not None:
