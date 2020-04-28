@@ -4,9 +4,9 @@ import numpy as np
 import json
 
 class LearningLog:
-    def __init__(self, learning_settings):
+    def __init__(self, learning_settings={}):
         self.testament = {}
-        self.testament.update(learning_settings)
+        self.testament["setting"] = {}
         self.testament["log"] = {}
     
     def make_log(self, learning_count, value_name, values):
