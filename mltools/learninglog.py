@@ -6,7 +6,7 @@ import json
 class LearningLog:
     def __init__(self, learning_settings={}):
         self.testament = {}
-        self.testament["setting"] = {}
+        self.testament["setting"] = learning_settings
         self.testament["log"] = {}
     
     def make_log(self, learning_count, value_name, values):
